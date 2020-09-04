@@ -11,6 +11,6 @@ export class DashboardComponent implements OnInit {
   constructor(private readonly dashboardService: DashboardService) {}
 
   ngOnInit(): void {
-    this.dashboardService.traversePages();
+    this.dashboardService.get();
   }
 }
