@@ -7,14 +7,7 @@ const port = 3000
 app.use(cors())
 
 app.get('/data', async (req, res, next) => {
-  const data = await axios
-    .get('https://edraak.atlassian.net/rest/api/2/', {
-      auth: {
-        username: '',
-        password: '', // password
-      },
-    })
-    .then(({ data }) => data)
+  const data = await axios.get().then(({ data }) => data)
 
   res.json(data)
 })
