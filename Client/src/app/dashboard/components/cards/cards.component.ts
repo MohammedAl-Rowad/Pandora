@@ -4,6 +4,9 @@ import { Component, OnInit, Input } from '@angular/core';
   selector: 'pandora-cards',
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.scss'],
+  host: {
+    '(window:resize)': 'onResize($event)',
+  },
 })
 export class CardsComponent implements OnInit {
   @Input() data: Array<{ name: string; value: number }>;
@@ -14,10 +17,10 @@ export class CardsComponent implements OnInit {
   cardColor: string = '#232837';
 
   view: any[] = [window.innerWidth, 400];
-  constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.data);
-    console.log(this.colorScheme);
+  onResize() {
+    this.view = [window.innerWidth, this.view[1]];
   }
+
+  ngOnInit(): void {}
 }
