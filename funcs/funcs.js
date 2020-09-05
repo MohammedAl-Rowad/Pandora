@@ -9,20 +9,13 @@ const groupBy = (data, mapper) =>
     {}
   )
 
-const statuses = groupBy(data.issues, ({ status: { name } }) => name)
-
-const issuesTypes = groupBy(data.issues, ({ issuetype: { name } }) => name)
-
-const mapToCards = (obj) => {
-  return Object.keys(obj).reduce(
+const mapToCards = (obj) =>
+  Object.keys(obj).reduce(
     (arr, key) => [...arr, { name: key, value: obj[key] }],
     []
   )
-}
 
 console.log(
-  statuses,
-  issuesTypes,
-  mapToCards(statuses),
-  mapToCards(issuesTypes)
+  mapToCards(groupBy(data.issues, ({ status: { name } }) => name)),
+  mapToCards(groupBy(data.issues, ({ issuetype: { name } }) => name))
 )
