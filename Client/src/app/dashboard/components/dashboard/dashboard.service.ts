@@ -10,18 +10,27 @@ export class DashboardService {
     return this.traversePages(API);
   }
 
+  groupBy(data: any, mapper: any) {
+    return data.reduce(
+      (groupedObj, { fields }) => ({
+        ...groupedObj,
+        [mapper(fields)]: 1 + (+[groupedObj[mapper(fields)]] || 0),
+      }),
+      {}
+    );
+  }
+
+  mapToCards(obj: { [key: string]: number }) {
+    return Object.keys(obj).reduce(
+      (arr, key) => [...arr, { name: key, value: obj[key] }],
+      []
+    );
+  }
+
   private traversePages(API: string) {
     const data = [];
     const { ceil } = Math;
-    console.log;
-    return this.http.get(`${API}`).subscribe({
-      next(response) {
-        console.log(response);
-      },
-      error() {
-        alert('Plz refresh the page, something went wrong');
-      },
-    });
+    return this.http.get(`${API}`);
   }
 
   private basicAuth(
