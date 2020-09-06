@@ -1,28 +1,32 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'pandora-cards',
-  templateUrl: './cards.component.html',
-  styleUrls: ['./cards.component.scss'],
+  selector: 'pandora-chart',
+  templateUrl: './chart.component.html',
+  styleUrls: ['./chart.component.scss'],
   host: {
     '(window:resize)': 'onResize($event)',
   },
 })
-export class CardsComponent implements OnInit {
+export class ChartComponent implements OnInit {
   @Input() data: Array<{ name: string; value: number }>;
+  @Input() type: 'number-card';
 
   colorScheme = {
+    name: 'ocean',
+    selectable: false,
+    group: 'Ordinal',
     domain: [
-      '#A10A28',
-      '#D3342D',
-      '#EF6D49',
-      '#FAAD67',
-      '#FDDE90',
-      '#DBED91',
-      '#A9D770',
-      '#6CBA67',
-      '#2C9653',
-      '#146738',
+      '#1D68FB',
+      '#33C0FC',
+      '#4AFFFE',
+      '#AFFFFF',
+      '#FFFC63',
+      '#FDBD2D',
+      '#FC8A25',
+      '#FA4F1E',
+      '#FA141B',
+      '#BA38D1',
     ],
   };
   cardColor: string = '#232837';
