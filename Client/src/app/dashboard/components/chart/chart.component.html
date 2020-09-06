@@ -1,0 +1,20 @@
+<ng-container *ngIf="data">
+  <section [ngSwitch]="type">
+    <ngx-charts-number-card
+      [view]="view"
+      *ngSwitchCase="'number-card'"
+      [scheme]="colorScheme"
+      [results]="data"
+      [cardColor]="cardColor"
+    >
+    </ngx-charts-number-card>
+    <ngx-charts-pie-grid
+      [view]="view"
+      *ngSwitchCase="'pie-grid'"
+      [scheme]="colorScheme"
+      [results]="data"
+      [cardColor]="cardColor"
+    >
+    </ngx-charts-pie-grid>
+  </section>
+</ng-container>
