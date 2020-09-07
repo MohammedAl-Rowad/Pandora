@@ -1,1 +1,32 @@
-<p>all-projects works!</p>
+<mat-card *ngFor="let project of projects" matRipple>
+  <mat-card-header>
+    <mat-card-title>
+      <img
+        [src]="project.avatarUrl"
+        alt="Photo of a Shiba Inu"
+        width="20"
+        height="20"
+      />
+      {{ project.name }}
+      <img
+        [src]="project.avatarUrl"
+        alt="Photo of a Shiba Inu"
+        width="20"
+        height="20"
+      />
+    </mat-card-title>
+    <mat-card-subtitle> Key: {{ project.key }} </mat-card-subtitle>
+    <mat-card-subtitle>
+      Methodology : {{ project.methodology }}
+    </mat-card-subtitle>
+    <mat-card-subtitle>
+      Project Type Key : {{ project.projectTypeKey }}
+    </mat-card-subtitle>
+    <mat-card-subtitle>
+      Is Simplified : {{ project.simplified }}
+    </mat-card-subtitle>
+    <mat-card-subtitle> Style : {{ project.style }} </mat-card-subtitle>
+  </mat-card-header>
+  <!-- <mat-card-content>
+  </mat-card-content> -->
+</mat-card>
