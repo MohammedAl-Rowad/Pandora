@@ -1,0 +1,19 @@
+<section class="row">
+  <mat-card *ngFor="let user of users" matRipple class="col-2">
+    <mat-card-header>
+      <div mat-card-avatar>
+        <img
+          cardim
+          [src]="user.avatarUrl"
+          alt="Photo of a Shiba Inu"
+          height="30"
+        />
+      </div>
+      <mat-card-title>
+        {{ user.displayName }}
+      </mat-card-title>
+    </mat-card-header>
+    <!-- <mat-card-content>
+    </mat-card-content> -->
+  </mat-card>
+</section>

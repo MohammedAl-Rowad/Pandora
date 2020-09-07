@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 import { GenericService } from 'src/app/services/generic.service';
 
 @Injectable()
-export class ProjectsResolver implements Resolve<any> {
+export class UsersResolver implements Resolve<any> {
   constructor(private readonly genericService: GenericService) {}
 
   resolve(
@@ -17,6 +17,6 @@ export class ProjectsResolver implements Resolve<any> {
     state: RouterStateSnapshot
   ): Observable<any> | Promise<any> | any {
     const { API } = environment;
-    return this.genericService.genericGet('projects');
+    return this.genericService.genericGet('users');
   }
 }
