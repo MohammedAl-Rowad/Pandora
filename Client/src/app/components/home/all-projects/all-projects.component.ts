@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'pandora-all-projects',
@@ -7,9 +8,15 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./all-projects.component.scss'],
 })
 export class AllProjectsComponent implements OnInit {
-  constructor(private readonly route: ActivatedRoute) {}
+  projects: Array<any>;
+  constructor(
+    private readonly route: ActivatedRoute,
+    private readonly spinner: NgxSpinnerService
+  ) {}
 
   ngOnInit(): void {
-    console.log(this.route.snapshot.data);
+    const { projects } = this.route.snapshot.data;
+
+    this.spinner.hide();
   }
 }

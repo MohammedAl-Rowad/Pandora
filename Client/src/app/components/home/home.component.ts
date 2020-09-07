@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'pandora-home',
@@ -6,6 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  breakpoint: number;
-  constructor() {}
+  constructor(private readonly spinner: NgxSpinnerService) {}
+
+  showSpinner() {
+    this.spinner.show();
+  }
 }
