@@ -9,6 +9,9 @@ import { HomeComponent } from './components/home/home.component';
 import { MatModule } from './modules/mat/mat.module';
 import { HomeMainChartsComponent } from './components/home-main-charts/home-main-charts.component';
 import { AllProjectsComponent } from './components/home/all-projects/all-projects.component';
+import { AllUsersComponent } from './components/home/all-users/all-users.component';
+import { ProjectsResolver } from './components/home/all-projects/resolvers/get-projects.resolver';
+import { UsersResolver } from './components/home/all-users/resolvers/get-users.resolver';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,7 @@ import { AllProjectsComponent } from './components/home/all-projects/all-project
     HomeComponent,
     HomeMainChartsComponent,
     AllProjectsComponent,
+    AllUsersComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +28,7 @@ import { AllProjectsComponent } from './components/home/all-projects/all-project
     MatModule,
     NgxSpinnerModule,
   ],
-  providers: [],
+  providers: [ProjectsResolver, UsersResolver],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
