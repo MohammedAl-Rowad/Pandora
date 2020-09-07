@@ -1,9 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import "~bootstrap-4-grid/css/grid.min.css";
+@import "~@angular/material/prebuilt-themes/purple-green.css";
 html,
 body {
   min-height: 100vh !important;
   background-color: #303a40;
+  color: #fff;
 }
 body {
   margin: 0;
