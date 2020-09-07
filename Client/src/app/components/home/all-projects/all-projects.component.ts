@@ -16,7 +16,26 @@ export class AllProjectsComponent implements OnInit {
 
   ngOnInit(): void {
     const { projects } = this.route.snapshot.data;
-
+    console.log(projects);
+    this.projects = projects.map(
+      ({
+        key,
+        name,
+        avatarUrls,
+        projectCategory,
+        projectTypeKey,
+        simplified,
+        style,
+      }) => ({
+        key,
+        name,
+        avatarUrl: avatarUrls['32x32'],
+        methodology: projectCategory ? projectCategory.name : '〰〰',
+        simplified,
+        projectTypeKey,
+        style,
+      })
+    );
     this.spinner.hide();
   }
 }
