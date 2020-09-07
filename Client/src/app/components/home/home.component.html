@@ -20,7 +20,7 @@
       class="example-ripple-container mat-elevation-z4"
       matRipple
       (click)="showSpinner()"
-      routerLink="all-projects"
+      routerLink="projects"
     >
       <strong>
         <mat-icon aria-hidden="false"> highlight </mat-icon>
@@ -30,7 +30,12 @@
     </div>
   </div>
   <div class="col-6">
-    <div class="example-ripple-container mat-elevation-z4" matRipple>
+    <div
+      class="example-ripple-container mat-elevation-z4"
+      matRipple
+      (click)="showSpinner()"
+      routerLink="users"
+    >
       <mat-icon aria-hidden="false"> person </mat-icon>
       <strong> Analytics for a specific user </strong>
       <mat-icon aria-hidden="false"> person </mat-icon>

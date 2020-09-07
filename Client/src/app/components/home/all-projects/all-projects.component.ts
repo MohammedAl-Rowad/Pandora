@@ -16,7 +16,6 @@ export class AllProjectsComponent implements OnInit {
 
   ngOnInit(): void {
     const { projects } = this.route.snapshot.data;
-    console.log(projects);
     this.projects = projects.map(
       ({
         key,
