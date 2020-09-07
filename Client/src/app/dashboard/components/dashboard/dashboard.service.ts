@@ -30,7 +30,7 @@ export class DashboardService {
   private traversePages(API: string) {
     const data = [];
     const { ceil } = Math;
-    return this.http.get(`${API}`);
+    return this.http.get(`${API}/data`);
   }
 
   private basicAuth(
