@@ -7,9 +7,10 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { HomeComponent } from './components/home/home.component';
 import { MatModule } from './modules/mat/mat.module';
 import { HomeMainChartsComponent } from './components/home-main-charts/home-main-charts.component';
+import { AllProjectsComponent } from './components/home/all-projects/all-projects.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, HomeMainChartsComponent],
+  declarations: [AppComponent, HomeComponent, HomeMainChartsComponent, AllProjectsComponent],
   imports: [BrowserModule, AppRoutingModule, DashboardModule, MatModule],
   providers: [],
   bootstrap: [AppComponent],
