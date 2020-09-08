@@ -5,13 +5,21 @@ import { AllUsersComponent } from './components/home/all-users/all-users.compone
 import { ProjectsResolver } from './components/home/all-projects/resolvers/get-projects.resolver';
 import { UsersResolver } from './components/home/all-users/resolvers/get-users.resolver';
 import { HomeComponent } from './components/home/home.component';
+import { ProjectComponent } from './components/home/all-projects/components/project/project.component';
+import { ProjectResolver } from './components/home/all-projects/components/resolvers/project.resolver';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   {
     path: 'projects',
     component: AllProjectsComponent,
+    pathMatch: 'full',
     resolve: { projects: ProjectsResolver },
+  },
+  {
+    path: 'projects/:id',
+    component: ProjectComponent,
+    resolve: { projects: ProjectResolver },
   },
   {
     path: 'users',

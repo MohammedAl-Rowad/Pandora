@@ -8,13 +8,14 @@ import { Observable } from 'rxjs';
 import { GenericService } from 'src/app/services/generic.service';
 
 @Injectable()
-export class ProjectsResolver implements Resolve<any> {
+export class ProjectResolver implements Resolve<any> {
   constructor(private readonly genericService: GenericService) {}
 
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<any> | Promise<any> | any {
-    return this.genericService.genericGet('projects');
+    const { id } = route.params;
+    return this.genericService.genericGet(`projects/${id}`);
   }
 }

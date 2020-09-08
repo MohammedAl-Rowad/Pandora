@@ -12,6 +12,8 @@ import { AllProjectsComponent } from './components/home/all-projects/all-project
 import { AllUsersComponent } from './components/home/all-users/all-users.component';
 import { ProjectsResolver } from './components/home/all-projects/resolvers/get-projects.resolver';
 import { UsersResolver } from './components/home/all-users/resolvers/get-users.resolver';
+import { ProjectComponent } from './components/home/all-projects/components/project/project.component';
+import { ProjectResolver } from './components/home/all-projects/components/resolvers/project.resolver';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { UsersResolver } from './components/home/all-users/resolvers/get-users.r
     HomeMainChartsComponent,
     AllProjectsComponent,
     AllUsersComponent,
+    ProjectComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,7 @@ import { UsersResolver } from './components/home/all-users/resolvers/get-users.r
     MatModule,
     NgxSpinnerModule,
   ],
-  providers: [ProjectsResolver, UsersResolver],
+  providers: [ProjectsResolver, UsersResolver, ProjectResolver],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

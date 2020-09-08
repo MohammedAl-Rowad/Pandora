@@ -8,7 +8,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./all-projects.component.scss'],
 })
 export class AllProjectsComponent implements OnInit {
-  projects: Array<any>;
+  projects: Array<any> = [];
   constructor(
     private readonly route: ActivatedRoute,
     private readonly spinner: NgxSpinnerService
@@ -16,25 +16,30 @@ export class AllProjectsComponent implements OnInit {
 
   ngOnInit(): void {
     const { projects } = this.route.snapshot.data;
-    this.projects = projects.map(
-      ({
-        key,
-        name,
-        avatarUrls,
-        projectCategory,
-        projectTypeKey,
-        simplified,
-        style,
-      }) => ({
-        key,
-        name,
-        avatarUrl: avatarUrls['32x32'],
-        methodology: projectCategory ? projectCategory.name : '〰〰',
-        simplified,
-        projectTypeKey,
-        style,
-      })
-    );
+    this.projects = [
+      { name: '🚧 ALL PROJECTS 🚧' },
+      ...projects.map(
+        ({
+          key,
+          id,
+          name,
+          avatarUrls,
+          projectCategory,
+          projectTypeKey,
+          simplified,
+          style,
+        }) => ({
+          key,
+          name,
+          id,
+          avatarUrl: avatarUrls['32x32'],
+          methodology: projectCategory ? projectCategory.name : '〰〰',
+          simplified,
+          projectTypeKey,
+          style,
+        })
+      ),
+    ];
     this.spinner.hide();
   }
 }
