@@ -19,8 +19,8 @@ export class AllUsersComponent implements OnInit {
       users: { data: users },
     } = this.route.snapshot.data;
     this.users = users.reduce(
-      (arr, { displayName, accountType, avatarUrls }) => {
-        if (accountType !== 'app') {
+      (arr, { displayName, accountType, avatarUrls, active }) => {
+        if (accountType !== 'app' && active) {
           arr.push({
             displayName,
             avatarUrl: avatarUrls['48x48'],

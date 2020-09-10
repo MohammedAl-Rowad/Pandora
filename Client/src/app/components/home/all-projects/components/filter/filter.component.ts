@@ -27,8 +27,8 @@ export class FilterComponent implements OnInit {
     });
     if (this.genericService.globals.users) {
       this.people = this.genericService.globals.users.reduce(
-        (arr, { accountId, avatarUrls, accountType, displayName }) => {
-          if (accountType !== 'app') {
+        (arr, { accountId, avatarUrls, accountType, displayName, active }) => {
+          if (accountType !== 'app' && active) {
             arr.push({
               id: accountId,
               avatarUrl: avatarUrls['48x48'],
