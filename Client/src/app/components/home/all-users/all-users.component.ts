@@ -15,7 +15,9 @@ export class AllUsersComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const { users } = this.route.snapshot.data;
+    const {
+      users: { data: users },
+    } = this.route.snapshot.data;
     this.users = users.reduce(
       (arr, { displayName, accountType, avatarUrls }) => {
         if (accountType !== 'app') {
