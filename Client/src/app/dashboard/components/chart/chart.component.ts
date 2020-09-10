@@ -10,7 +10,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ChartComponent implements OnInit {
   @Input() data: Array<{ name: string; value: number }>;
-  @Input() type: 'number-card';
+  @Input() type: string;
   @Input() set setColorScheme(colors: Array<string>) {
     if (colors) {
       this.colorScheme = {
@@ -51,7 +51,6 @@ export class ChartComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.data && this.data.length > 10) {
-      console.log(this.data);
       this.height = 900;
       this.view = [window.innerWidth, this.height];
       this.colorScheme = {
@@ -67,7 +66,7 @@ export class ChartComponent implements OnInit {
           '#4D4357',
           '#EFD7FF',
           '#BF5A6C',
-          '#2A2D40',
+          '#656c99',
           '#535B73',
         ],
       };

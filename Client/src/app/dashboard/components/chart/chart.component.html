@@ -16,5 +16,16 @@
       [cardColor]="cardColor"
     >
     </ngx-charts-pie-grid>
+    <ngx-charts-bar-vertical
+      [view]="view"
+      *ngSwitchCase="'bar-vertical'"
+      [scheme]="colorScheme"
+      [results]="data"
+      [xAxis]="true"
+      [showGridLines]="false"
+      [yAxis]="true"
+      [cardColor]="cardColor"
+    >
+    </ngx-charts-bar-vertical>
   </section>
 </section>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { DashboardService } from 'src/app/dashboard/components/dashboard/dashboard.service';
+import { ChartData, Data } from 'src/types';
 
 @Component({
   selector: 'pandora-project',
@@ -10,8 +11,8 @@ import { DashboardService } from 'src/app/dashboard/components/dashboard/dashboa
   providers: [DashboardService],
 })
 export class ProjectComponent implements OnInit {
-  issuesStatuses: Array<{ name: string; value: number }>;
-  issuesTypes: Array<{ name: string; value: number }>;
+  issuesStatuses: ChartData;
+  issuesTypes: ChartData;
   total: any;
   project: any;
 
@@ -23,16 +24,21 @@ export class ProjectComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.hide();
+    const sorter = (a: Data, b: Data) => b.value - a.value;
     const {
       data: { issues, project, total },
     } = this.route.snapshot.data;
     this.project = project || { name: '🚧 ALL PROJECTS 🚧' };
     this.total = [{ name: 'Total Issues', value: total }];
-    this.issuesStatuses = this.dashboardService.mapToCards(
-      this.dashboardService.groupBy(issues, ({ status: { name } }) => name)
-    );
-    this.issuesTypes = this.dashboardService.mapToCards(
-      this.dashboardService.groupBy(issues, ({ issuetype: { name } }) => name)
-    );
+    this.issuesStatuses = this.dashboardService
+      .mapToCards(
+        this.dashboardService.groupBy(issues, ({ status: { name } }) => name)
+      )
+      .sort(sorter);
+    this.issuesTypes = this.dashboardService
+      .mapToCards(
+        this.dashboardService.groupBy(issues, ({ issuetype: { name } }) => name)
+      )
+      .sort(sorter);
   }
 }

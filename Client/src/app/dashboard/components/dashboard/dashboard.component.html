@@ -1,8 +1,26 @@
-<pandora-chart [data]="total" type="number-card" [setColorScheme]="colorScheme">
-</pandora-chart>
+<ng-container *ngIf="total">
+  <pandora-chart
+    [data]="total"
+    type="number-card"
+    [setColorScheme]="colorScheme"
+  >
+  </pandora-chart>
+</ng-container>
 
-<pandora-chart [data]="issuesStatuses" type="number-card"> </pandora-chart>
-<pandora-chart [data]="issuesStatuses" type="pie-grid"> </pandora-chart>
+<ng-container *ngIf="issuesStatuses">
+  <h1>Issues Statuses</h1>
+  <pandora-chart [data]="issuesStatuses" type="number-card"> </pandora-chart>
+  <pandora-chart [data]="issuesStatuses" type="pie-grid"> </pandora-chart>
+  <ng-container *ngIf="barData">
+    <pandora-chart [data]="barData" type="bar-vertical"> </pandora-chart>
+  </ng-container>
+</ng-container>
 
-<pandora-chart [data]="issuesTypes" type="number-card"> </pandora-chart>
-<pandora-chart [data]="issuesTypes" type="pie-grid"> </pandora-chart>
+<ng-container *ngIf="issuesTypes">
+  <h1>Issues Types</h1>
+  <pandora-chart [data]="issuesTypes" type="number-card"> </pandora-chart>
+  <pandora-chart [data]="issuesTypes" type="pie-grid"> </pandora-chart>
+  <ng-container *ngIf="barData">
+    <pandora-chart [data]="barData" type="bar-vertical"> </pandora-chart>
+  </ng-container>
+</ng-container>
