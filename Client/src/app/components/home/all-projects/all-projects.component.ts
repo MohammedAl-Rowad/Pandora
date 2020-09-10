@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
@@ -11,7 +11,8 @@ export class AllProjectsComponent implements OnInit {
   projects: Array<any> = [];
   constructor(
     private readonly route: ActivatedRoute,
-    private readonly spinner: NgxSpinnerService
+    private readonly spinner: NgxSpinnerService,
+    private readonly router: Router
   ) {}
 
   ngOnInit(): void {
@@ -41,5 +42,12 @@ export class AllProjectsComponent implements OnInit {
       ),
     ];
     this.spinner.hide();
+  }
+
+  showSpinner(id: string, project: object): void {
+    this.router.navigateByUrl(`projects/${id}`, {
+      state: project,
+    });
+    this.spinner.show();
   }
 }

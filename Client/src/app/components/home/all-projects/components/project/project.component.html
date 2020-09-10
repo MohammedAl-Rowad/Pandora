@@ -1,1 +1,6 @@
-<p>project works!</p>
+<ng-container *ngIf="issuesTypes && issuesTypes">
+  <panadora-dashboard
+    [issuesStatuses]="issuesStatuses"
+    [issuesTypes]="issuesTypes"
+  ></panadora-dashboard>
+</ng-container>

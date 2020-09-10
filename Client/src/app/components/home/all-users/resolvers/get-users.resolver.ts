@@ -7,16 +7,20 @@ import {
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { GenericService } from 'src/app/services/generic.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Injectable()
 export class UsersResolver implements Resolve<any> {
-  constructor(private readonly genericService: GenericService) {}
+  constructor(
+    private readonly genericService: GenericService,
+    private readonly spinner: NgxSpinnerService
+  ) {}
 
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<any> | Promise<any> | any {
-    const { API } = environment;
+    this.spinner.show();
     return this.genericService.genericGet('users');
   }
 }
