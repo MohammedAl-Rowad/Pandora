@@ -14,6 +14,9 @@ import { ProjectsResolver } from './components/home/all-projects/resolvers/get-p
 import { UsersResolver } from './components/home/all-users/resolvers/get-users.resolver';
 import { ProjectComponent } from './components/home/all-projects/components/project/project.component';
 import { ProjectResolver } from './components/home/all-projects/components/resolvers/project.resolver';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { FormsModule } from '@angular/forms';
+import { FilterComponent } from './components/home/all-projects/components/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,7 @@ import { ProjectResolver } from './components/home/all-projects/components/resol
     AllProjectsComponent,
     AllUsersComponent,
     ProjectComponent,
+    FilterComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +34,8 @@ import { ProjectResolver } from './components/home/all-projects/components/resol
     DashboardModule,
     MatModule,
     NgxSpinnerModule,
+    FormsModule,
+    NgSelectModule,
   ],
   providers: [ProjectsResolver, UsersResolver, ProjectResolver],
   bootstrap: [AppComponent],

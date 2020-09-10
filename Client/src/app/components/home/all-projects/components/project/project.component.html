@@ -1,8 +1,11 @@
 <ng-container *ngIf="issuesTypes && issuesTypes">
   <section class="row">
-    <mat-card>
+    <mat-card class="col-12">
       <h1>{{ project.name }}</h1>
     </mat-card>
+    <div class="col-6" *ngIf="project.name !== '🚧 ALL PROJECTS 🚧'">
+      <pandora-filter></pandora-filter>
+    </div>
   </section>
   <panadora-dashboard [total]="total" [colorScheme]="['#F0F2F2']">
   </panadora-dashboard>

@@ -20,6 +20,7 @@ const routes: Routes = [
     path: 'projects/:id',
     component: ProjectComponent,
     resolve: { data: ProjectResolver },
+    runGuardsAndResolvers: 'always',
   },
   {
     path: 'users',

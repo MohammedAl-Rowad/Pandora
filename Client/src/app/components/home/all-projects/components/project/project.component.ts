@@ -24,10 +24,23 @@ export class ProjectComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.hide();
+
+    this.route.data.subscribe({
+      next: (snapshot) => {
+        console.log(snapshot);
+        const {
+          data: { issues, project, total },
+        } = snapshot;
+        this.issuesStatuses = [];
+        this.total = [];
+        this.issuesTypes = [];
+        this.mapper(project, issues, total);
+      },
+    });
+  }
+
+  private mapper(project, issues, total) {
     const sorter = (a: Data, b: Data) => b.value - a.value;
-    const {
-      data: { issues, project, total },
-    } = this.route.snapshot.data;
     this.project = project || { name: '🚧 ALL PROJECTS 🚧' };
     this.total = [{ name: 'Total Issues', value: total }];
     this.issuesStatuses = this.dashboardService

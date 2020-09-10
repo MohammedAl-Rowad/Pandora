@@ -7,7 +7,10 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class GenericService {
-  constructor(private readonly http: HttpClient) {}
+  globals: any;
+  constructor(private readonly http: HttpClient) {
+    this.globals = {};
+  }
 
   genericGet<T>(endPoint: string): Observable<T> {
     const { API } = environment;

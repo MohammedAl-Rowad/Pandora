@@ -1,10 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { GenericService } from './services/generic.service';
 
 @Component({
   selector: 'panadora-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  title = 'Pandora';
+export class AppComponent implements OnInit {
+  constructor(private readonly genericService: GenericService) {}
+
+  ngOnInit(): void {
+    this.genericService.genericGet('users').subscribe({
+      next: ({ data }) => {
+        this.genericService.globals.users = data;
+      },
+    });
+  }
 }

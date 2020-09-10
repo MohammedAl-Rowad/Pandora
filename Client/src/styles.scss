@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap-4-grid/css/grid.min.css";
 @import "~@angular/material/prebuilt-themes/purple-green.css";
+@import "~@ng-select/ng-select/themes/material.theme.css";
+
 html,
 body {
   min-height: 100vh !important;
@@ -22,4 +24,8 @@ body {
 .header-txt {
   font-size: 3em !important;
   text-align: center;
+}
+
+.ng-select .ng-select-container .ng-value-container .ng-input > input {
+  color: whitesmoke !important;
 }

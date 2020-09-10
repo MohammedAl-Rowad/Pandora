@@ -7,6 +7,8 @@ import {
 import { Observable } from 'rxjs';
 import { GenericService } from 'src/app/services/generic.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { tap } from 'rxjs/operators';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable()
 export class ProjectResolver implements Resolve<any> {
@@ -21,6 +23,14 @@ export class ProjectResolver implements Resolve<any> {
   ): Observable<any> | Promise<any> | any {
     this.spinner.show();
     const { id } = route.params;
-    return this.genericService.genericGet(`projects/${id}`);
+    const [_, ids] = state.url.split('userIds=');
+    console.log(state.url, state.url.split('userIds='));
+    return this.genericService
+      .genericGet(`projects/${id}${ids ? `?userIds=${ids}` : ''}`)
+      .pipe(
+        tap((d) => {
+          this.spinner.hide();
+        })
+      );
   }
 }

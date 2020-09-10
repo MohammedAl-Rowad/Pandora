@@ -23,7 +23,7 @@ export class AllUsersComponent implements OnInit {
         if (accountType !== 'app') {
           arr.push({
             displayName,
-            avatarUrl: avatarUrls['32x32'],
+            avatarUrl: avatarUrls['48x48'],
           });
         }
         return arr;
