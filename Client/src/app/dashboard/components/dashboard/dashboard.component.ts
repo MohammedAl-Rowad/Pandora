@@ -8,6 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class DashboardComponent implements OnInit {
   @Input() issuesStatuses: Array<{ name: string; value: number }>;
   @Input() issuesTypes: Array<{ name: string; value: number }>;
+  @Input() total: Array<{ name: string; value: number }>;
+  @Input() colorScheme?: Array<string>;
 
   ngOnInit(): void {}
 }

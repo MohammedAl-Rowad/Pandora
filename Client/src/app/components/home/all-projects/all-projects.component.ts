@@ -44,7 +44,7 @@ export class AllProjectsComponent implements OnInit {
     this.spinner.hide();
   }
 
-  showSpinner(id: string, project: object): void {
+  showSpinner(id: string = 'all', project: object): void {
     this.router.navigateByUrl(`projects/${id}`, {
       state: project,
     });

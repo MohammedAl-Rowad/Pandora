@@ -12,6 +12,9 @@ import { DashboardService } from 'src/app/dashboard/components/dashboard/dashboa
 export class ProjectComponent implements OnInit {
   issuesStatuses: Array<{ name: string; value: number }>;
   issuesTypes: Array<{ name: string; value: number }>;
+  total: any;
+  project: any;
+
   constructor(
     private readonly route: ActivatedRoute,
     private readonly spinner: NgxSpinnerService,
@@ -21,9 +24,10 @@ export class ProjectComponent implements OnInit {
   ngOnInit(): void {
     this.spinner.hide();
     const {
-      issues: { issues },
+      data: { issues, project, total },
     } = this.route.snapshot.data;
-
+    this.project = project || { name: '🚧 ALL PROJECTS 🚧' };
+    this.total = [{ name: 'Total Issues', value: total }];
     this.issuesStatuses = this.dashboardService.mapToCards(
       this.dashboardService.groupBy(issues, ({ status: { name } }) => name)
     );

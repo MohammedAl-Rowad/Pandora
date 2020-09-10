@@ -1,4 +1,11 @@
 <ng-container *ngIf="issuesTypes && issuesTypes">
+  <section class="row">
+    <mat-card>
+      <h1>{{ project.name }}</h1>
+    </mat-card>
+  </section>
+  <panadora-dashboard [total]="total" [colorScheme]="['#F0F2F2']">
+  </panadora-dashboard>
   <panadora-dashboard
     [issuesStatuses]="issuesStatuses"
     [issuesTypes]="issuesTypes"

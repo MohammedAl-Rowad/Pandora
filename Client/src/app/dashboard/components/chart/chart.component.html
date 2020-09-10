@@ -1,4 +1,4 @@
-<ng-container *ngIf="data">
+<section *ngIf="data" class="charts">
   <section [ngSwitch]="type">
     <ngx-charts-number-card
       [view]="view"
@@ -17,4 +17,4 @@
     >
     </ngx-charts-pie-grid>
   </section>
-</ng-container>
+</section>

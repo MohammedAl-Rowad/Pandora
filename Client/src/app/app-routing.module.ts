@@ -19,7 +19,7 @@ const routes: Routes = [
   {
     path: 'projects/:id',
     component: ProjectComponent,
-    resolve: { issues: ProjectResolver },
+    resolve: { data: ProjectResolver },
   },
   {
     path: 'users',

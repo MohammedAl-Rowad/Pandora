@@ -11,6 +11,15 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ChartComponent implements OnInit {
   @Input() data: Array<{ name: string; value: number }>;
   @Input() type: 'number-card';
+  @Input() set setColorScheme(colors: Array<string>) {
+    if (colors) {
+      this.colorScheme = {
+        ...this.colorScheme,
+        domain: colors,
+      };
+    }
+  }
+  height: number = 400;
 
   colorScheme = {
     name: 'ocean',
@@ -31,7 +40,7 @@ export class ChartComponent implements OnInit {
   };
   cardColor: string = '#232837';
 
-  view: any[] = [window.innerWidth, 400];
+  view: any[] = [window.innerWidth, this.height];
 
   onResize() {
     this.view = [
@@ -40,5 +49,28 @@ export class ChartComponent implements OnInit {
     ];
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.data && this.data.length > 10) {
+      console.log(this.data);
+      this.height = 900;
+      this.view = [window.innerWidth, this.height];
+      this.colorScheme = {
+        ...this.colorScheme,
+        domain: [
+          ...this.colorScheme.domain,
+          '#135487',
+          '#E00087',
+          '#800048',
+          '#D94AA7',
+          '#514F8C',
+          '#731F3E',
+          '#4D4357',
+          '#EFD7FF',
+          '#BF5A6C',
+          '#2A2D40',
+          '#535B73',
+        ],
+      };
+    }
+  }
 }
