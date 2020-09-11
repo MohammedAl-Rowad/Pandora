@@ -15,7 +15,7 @@ import { UsersResolver } from './components/home/all-users/resolvers/get-users.r
 import { ProjectComponent } from './components/home/all-projects/components/project/project.component';
 import { ProjectResolver } from './components/home/all-projects/components/resolvers/project.resolver';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterComponent } from './components/home/all-projects/components/filter/filter.component';
 import { UsersComponent } from './components/home/all-users/users/users.component';
 import { FilterProjectsComponent } from './components/home/all-users/users/filter-projects/filter-projects.component';
@@ -39,6 +39,7 @@ import { FilterProjectsComponent } from './components/home/all-users/users/filte
     MatModule,
     NgxSpinnerModule,
     FormsModule,
+    ReactiveFormsModule,
     NgSelectModule,
   ],
   providers: [ProjectsResolver, UsersResolver, ProjectResolver],
