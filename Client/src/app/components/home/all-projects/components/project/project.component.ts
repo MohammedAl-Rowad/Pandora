@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { DashboardService } from 'src/app/dashboard/components/dashboard/dashboard.service';
-import { ChartData, Data } from 'src/types';
+import { ChartData, Data, allProjects } from 'src/types';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'pandora-project',
@@ -13,35 +14,49 @@ import { ChartData, Data } from 'src/types';
 export class ProjectComponent implements OnInit {
   issuesStatuses: ChartData;
   issuesTypes: ChartData;
+  allProjects = allProjects;
   total: any;
   project: any;
+  @Input() isStatic?: boolean;
+  @Input() obj?: { issues: Array<any>; project: object; total: number };
 
   constructor(
     private readonly route: ActivatedRoute,
     private readonly spinner: NgxSpinnerService,
-    private readonly dashboardService: DashboardService
-  ) {}
+    private readonly dashboardService: DashboardService,
+    private readonly snackBar: MatSnackBar
+  ) {
+    this.isStatic = false;
+  }
 
   ngOnInit(): void {
     this.spinner.hide();
+    this.snackBar.open('Loaded this project!', 'Dismiss', { duration: 2000 });
 
-    this.route.data.subscribe({
-      next: (snapshot) => {
-        console.log(snapshot);
-        const {
-          data: { issues, project, total },
-        } = snapshot;
-        this.issuesStatuses = [];
-        this.total = [];
-        this.issuesTypes = [];
-        this.mapper(project, issues, total);
-      },
-    });
+    if (this.isStatic) {
+      const { issues, total } = this.obj;
+      this.issuesStatuses = [];
+      this.total = [];
+      this.issuesTypes = [];
+      this.mapper(issues, total);
+    } else {
+      this.route.data.subscribe({
+        next: (snapshot) => {
+          const {
+            data: { issues, project, total },
+          } = snapshot;
+          this.issuesStatuses = [];
+          this.total = [];
+          this.issuesTypes = [];
+          this.mapper(issues, total, project);
+        },
+      });
+    }
   }
 
-  private mapper(project, issues, total) {
+  private mapper(issues, total, project?) {
     const sorter = (a: Data, b: Data) => b.value - a.value;
-    this.project = project || { name: '🚧 ALL PROJECTS 🚧' };
+    this.project = project || { name: allProjects };
     this.total = [{ name: 'Total Issues', value: total }];
     this.issuesStatuses = this.dashboardService
       .mapToCards(

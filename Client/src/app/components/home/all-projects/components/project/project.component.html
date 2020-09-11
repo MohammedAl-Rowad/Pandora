@@ -1,9 +1,9 @@
 <ng-container *ngIf="issuesTypes && issuesTypes">
-  <section class="row">
+  <section class="row" *ngIf="!isStatic">
     <mat-card class="col-12">
       <h1>{{ project.name }}</h1>
     </mat-card>
-    <div class="col-6" *ngIf="project.name !== '🚧 ALL PROJECTS 🚧'">
+    <div class="col-6" *ngIf="project.name !== allProjects">
       <pandora-filter></pandora-filter>
     </div>
   </section>

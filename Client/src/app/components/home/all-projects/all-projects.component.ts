@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
-
+import { allProjects } from 'src/types';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'pandora-all-projects',
   templateUrl: './all-projects.component.html',
@@ -12,13 +13,14 @@ export class AllProjectsComponent implements OnInit {
   constructor(
     private readonly route: ActivatedRoute,
     private readonly spinner: NgxSpinnerService,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
     const { projects } = this.route.snapshot.data;
     this.projects = [
-      { name: '🚧 ALL PROJECTS 🚧' },
+      { name: allProjects },
       ...projects.map(
         ({
           key,
@@ -42,6 +44,9 @@ export class AllProjectsComponent implements OnInit {
       ),
     ];
     this.spinner.hide();
+    this.snackBar.open('Loaded all projects for Edraak', 'Dismiss', {
+      duration: 2000,
+    });
   }
 
   showSpinner(id: string = 'all', project: object): void {

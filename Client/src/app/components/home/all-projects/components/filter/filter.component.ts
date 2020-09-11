@@ -43,7 +43,6 @@ export class FilterComponent implements OnInit {
   }
 
   onChange(e: any) {
-    console.log(this.selectedPeople);
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams: {

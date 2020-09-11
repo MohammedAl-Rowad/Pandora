@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { GenericService } from 'src/app/services/generic.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { allProjects } from 'src/types';
 
 @Component({
   selector: 'pandora-filter-projects',
@@ -23,6 +23,7 @@ export class FilterProjectsComponent implements OnInit {
           id,
           name,
           avatarUrl: avatarUrls['32x32'],
+          project: allProjects,
         })
       );
     }

@@ -24,7 +24,6 @@ export class ProjectResolver implements Resolve<any> {
     this.spinner.show();
     const { id } = route.params;
     const [_, ids] = state.url.split('userIds=');
-    console.log(state.url, state.url.split('userIds='));
     return this.genericService
       .genericGet(`projects/${id}${ids ? `?userIds=${ids}` : ''}`)
       .pipe(

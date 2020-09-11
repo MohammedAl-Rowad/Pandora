@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'pandora-all-users',
@@ -11,7 +12,8 @@ export class AllUsersComponent implements OnInit {
   users: Array<any>;
   constructor(
     private readonly route: ActivatedRoute,
-    private readonly spinner: NgxSpinnerService
+    private readonly spinner: NgxSpinnerService,
+    private readonly snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -32,5 +34,8 @@ export class AllUsersComponent implements OnInit {
       []
     );
     this.spinner.hide();
+    this.snackBar.open('Loaded all Edraak Active users!', 'Dismiss', {
+      duration: 2000,
+    });
   }
 }

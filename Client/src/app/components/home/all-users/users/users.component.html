@@ -22,4 +22,7 @@
       (getData)="getData($event)"
     ></pandora-filter-projects>
   </div>
+  <div class="col-12" *ngIf="obj">
+    <pandora-project [obj]="obj" [isStatic]="true"> </pandora-project>
+  </div>
 </section>

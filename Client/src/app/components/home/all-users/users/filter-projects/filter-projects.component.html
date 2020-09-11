@@ -2,7 +2,9 @@
   [items]="projects"
   [multiple]="true"
   bindLabel="name"
+  groupBy="project"
   [selectableGroup]="true"
+  placeholder="Select Projects"
   [closeOnSelect]="false"
   bindValue="id"
   (change)="onChange($event)"
@@ -15,7 +17,13 @@
     let-index="index"
   >
     <input id="item-{{ index }}" type="checkbox" [ngModel]="item$.selected" />
-    <img src="{{ item.avatarUrl }}" alt="user photo" width="20" height="20" />
+    <img
+      src="{{ item.avatarUrl }}"
+      alt="user photo"
+      width="20"
+      height="20"
+      *ngIf="item.avatarUrl"
+    />
     {{ item.name }}
   </ng-template>
 </ng-select>
