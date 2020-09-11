@@ -13,7 +13,6 @@
       *ngSwitchCase="'pie-grid'"
       [scheme]="colorScheme"
       [results]="data"
-      [cardColor]="cardColor"
     >
     </ngx-charts-pie-grid>
     <ngx-charts-bar-vertical
@@ -24,8 +23,25 @@
       [xAxis]="true"
       [showGridLines]="false"
       [yAxis]="true"
-      [cardColor]="cardColor"
     >
     </ngx-charts-bar-vertical>
+    <ngx-charts-tree-map
+      [view]="view"
+      [scheme]="colorScheme"
+      [results]="data"
+      *ngSwitchCase="'tree-map'"
+      [animations]="true"
+    >
+    </ngx-charts-tree-map>
+
+    <ngx-charts-gauge
+      [view]="[view[0], 400]"
+      [scheme]="colorScheme"
+      [results]="data"
+      [legend]="false"
+      *ngSwitchCase="'charts-gauge'"
+      [animations]="true"
+    >
+    </ngx-charts-gauge>
   </section>
 </section>

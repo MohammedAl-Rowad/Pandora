@@ -15,14 +15,14 @@
     </mat-card-header>
   </mat-card>
 </section>
-
 <section class="row">
   <div class="col-6">
     <pandora-filter-projects
       (getData)="getData($event)"
     ></pandora-filter-projects>
   </div>
-  <div class="col-12" *ngIf="obj">
-    <pandora-project [obj]="obj" [isStatic]="true"> </pandora-project>
-  </div>
 </section>
+
+<ng-container *ngIf="obj">
+  <pandora-project [obj]="obj" [isStatic]="true"> </pandora-project>
+</ng-container>

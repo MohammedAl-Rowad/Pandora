@@ -11,6 +11,8 @@
   <h1 class="header-txt">Issues Statuses</h1>
   <pandora-chart [data]="issuesStatuses" type="number-card"> </pandora-chart>
   <pandora-chart [data]="issuesStatuses" type="pie-grid"> </pandora-chart>
+  <pandora-chart [data]="issuesStatuses" type="tree-map"> </pandora-chart>
+  <!-- <pandora-chart [data]="issuesStatuses" type="charts-gauge"> </pandora-chart> -->
   <ng-container *ngIf="barData">
     <pandora-chart [data]="barData" type="bar-vertical"> </pandora-chart>
   </ng-container>
@@ -20,6 +22,8 @@
   <h1 class="header-txt">Issues Types</h1>
   <pandora-chart [data]="issuesTypes" type="number-card"> </pandora-chart>
   <pandora-chart [data]="issuesTypes" type="pie-grid"> </pandora-chart>
+  <pandora-chart [data]="issuesTypes" type="tree-map"> </pandora-chart>
+  <!-- <pandora-chart [data]="issuesTypes" type="charts-gauge"> </pandora-chart> -->
   <ng-container *ngIf="barData">
     <pandora-chart [data]="barData" type="bar-vertical"> </pandora-chart>
   </ng-container>

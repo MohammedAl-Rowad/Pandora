@@ -27,7 +27,11 @@ export class UsersComponent implements OnInit {
         this.user = this.genericService.globals.users.filter(
           ({ accountId }) => id === accountId
         )[0];
-        this.snackBar.open('Loaded this user!', 'Dismiss', { duration: 2000 });
+        this.snackBar.open(
+          'Loaded this user! plz select a project to show some data',
+          'Dismiss',
+          { duration: 10000 }
+        );
         this.spinner.hide();
       },
     });
