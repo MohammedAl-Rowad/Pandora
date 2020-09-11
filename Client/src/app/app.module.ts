@@ -18,6 +18,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { FilterComponent } from './components/home/all-projects/components/filter/filter.component';
 import { UsersComponent } from './components/home/all-users/users/users.component';
+import { FilterProjectsComponent } from './components/home/all-users/users/filter-projects/filter-projects.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { UsersComponent } from './components/home/all-users/users/users.componen
     ProjectComponent,
     FilterComponent,
     UsersComponent,
+    FilterProjectsComponent,
   ],
   imports: [
     BrowserModule,

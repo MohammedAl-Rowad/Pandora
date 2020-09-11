@@ -26,4 +26,12 @@ export class UsersComponent implements OnInit {
       },
     });
   }
+
+  getData(projectIds: Array<string>): void {
+    this.genericService
+      .genericGet(`projects/${projectIds.join(' , ')}/${this.user.accountId}`)
+      .subscribe({
+        next: console.log,
+      });
+  }
 }
