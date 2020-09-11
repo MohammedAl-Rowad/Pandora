@@ -20,6 +20,9 @@ export class ProjectsResolver implements Resolve<any> {
     state: RouterStateSnapshot
   ): Observable<any> | Promise<any> | any {
     this.spinner.show();
-    return this.genericService.genericGet('projects');
+    return (
+      this.genericService.globals.projects ||
+      this.genericService.genericGet('projects')
+    );
   }
 }

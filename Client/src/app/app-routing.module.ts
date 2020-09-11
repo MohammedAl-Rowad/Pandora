@@ -7,6 +7,7 @@ import { UsersResolver } from './components/home/all-users/resolvers/get-users.r
 import { HomeComponent } from './components/home/home.component';
 import { ProjectComponent } from './components/home/all-projects/components/project/project.component';
 import { ProjectResolver } from './components/home/all-projects/components/resolvers/project.resolver';
+import { UsersComponent } from './components/home/all-users/users/users.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -25,6 +26,11 @@ const routes: Routes = [
   {
     path: 'users',
     component: AllUsersComponent,
+    resolve: { users: UsersResolver },
+  },
+  {
+    path: 'users/:id',
+    component: UsersComponent,
     resolve: { users: UsersResolver },
   },
 ];

@@ -21,6 +21,7 @@ export class UsersResolver implements Resolve<any> {
     state: RouterStateSnapshot
   ): Observable<any> | Promise<any> | any {
     this.spinner.show();
-    return this.genericService.genericGet('users');
+    const { users } = this.genericService.globals;
+    return users ? { data: users } : this.genericService.genericGet('users');
   }
 }
