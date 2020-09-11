@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { DashboardService } from 'src/app/dashboard/components/dashboard/dashboard.service';
-import { ChartData, Data, allProjects } from 'src/types';
+import { ChartData, Data, allProjects, LineData } from 'src/types';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -15,6 +15,7 @@ export class ProjectComponent implements OnInit {
   issuesStatuses: ChartData;
   issuesTypes: ChartData;
   allProjects = allProjects;
+  lineData: LineData;
   total: any;
   project: any;
   @Input() isStatic?: boolean;
@@ -58,6 +59,16 @@ export class ProjectComponent implements OnInit {
     const sorter = (a: Data, b: Data) => b.value - a.value;
     this.project = project || { name: allProjects };
     this.total = [{ name: 'Total Issues', value: total }];
+    this.lineData = [
+      {
+        name: 'Issues By Year',
+        series: this.dashboardService.mapToCards(
+          this.dashboardService.groupBy(issues, ({ created }) =>
+            new Date(created).getFullYear()
+          )
+        ),
+      },
+    ];
     this.issuesStatuses = this.dashboardService
       .mapToCards(
         this.dashboardService.groupBy(issues, ({ status: { name } }) => name)

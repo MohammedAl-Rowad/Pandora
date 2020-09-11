@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ChartData, LineData } from 'src/types';
 
 @Component({
   selector: 'pandora-chart',
@@ -9,7 +10,7 @@ import { Component, OnInit, Input } from '@angular/core';
   },
 })
 export class ChartComponent implements OnInit {
-  @Input() data: Array<{ name: string; value: number }>;
+  @Input() data: ChartData | LineData;
   @Input() type: string;
   @Input() set setColorScheme(colors: Array<string>) {
     if (colors) {

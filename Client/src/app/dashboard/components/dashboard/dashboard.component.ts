@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ChartData } from 'src/types';
+import { ChartData, LineData } from 'src/types';
 
 @Component({
   selector: 'panadora-dashboard',
@@ -11,7 +11,8 @@ export class DashboardComponent implements OnInit {
   @Input() issuesTypes: ChartData;
   @Input() total: ChartData;
   @Input() colorScheme?: Array<string>;
-  @Input() barData: ChartData;
+  @Input() barData?: ChartData;
+  @Input() lineData?: LineData;
 
   ngOnInit(): void {}
 }

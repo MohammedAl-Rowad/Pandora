@@ -1,4 +1,8 @@
-<section *ngIf="data" class="charts">
+<section
+  *ngIf="data"
+  class="charts"
+  [ngStyle]="{ marginTop: type === 'line-chart' ? '50px' : 'auto' }"
+>
   <section [ngSwitch]="type">
     <ngx-charts-number-card
       [view]="view"
@@ -43,5 +47,22 @@
       [animations]="true"
     >
     </ngx-charts-gauge>
+
+    <ngx-charts-line-chart
+      *ngSwitchCase="'line-chart'"
+      [view]="view"
+      [scheme]="colorScheme"
+      [legend]="false"
+      [showXAxisLabel]="true"
+      [showYAxisLabel]="true"
+      [showGridLines]="true"
+      [xAxis]="true"
+      [yAxis]="true"
+      xAxisLabel="Year"
+      yAxisLabel="Count"
+      timeline="true"
+      [results]="data"
+    >
+    </ngx-charts-line-chart>
   </section>
 </section>
