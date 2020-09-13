@@ -6,6 +6,10 @@
   >
   </pandora-chart>
 </ng-container>
+<ng-container *ngIf="lineData && !issuesTypes">
+  <h1 class="header-txt">Issues by year</h1>
+  <pandora-chart [data]="lineData" type="line-chart"> </pandora-chart>
+</ng-container>
 
 <ng-container *ngIf="issuesStatuses">
   <h1 class="header-txt">Issues Statuses</h1>
@@ -16,10 +20,6 @@
   <ng-container *ngIf="barData">
     <pandora-chart [data]="barData" type="bar-vertical"> </pandora-chart>
   </ng-container>
-</ng-container>
-
-<ng-container *ngIf="lineData && !issuesTypes">
-  <pandora-chart [data]="lineData" type="line-chart"> </pandora-chart>
 </ng-container>
 
 <ng-container *ngIf="issuesTypes">
