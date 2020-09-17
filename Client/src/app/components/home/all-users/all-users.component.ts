@@ -34,8 +34,5 @@ export class AllUsersComponent implements OnInit {
       []
     );
     this.spinner.hide();
-    this.snackBar.open('Loaded all Edraak Active users!', 'Dismiss', {
-      duration: 2000,
-    });
   }
 }

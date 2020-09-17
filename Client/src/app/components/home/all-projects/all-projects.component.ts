@@ -43,10 +43,8 @@ export class AllProjectsComponent implements OnInit {
         })
       ),
     ];
+    console.log(this.projects);
     this.spinner.hide();
-    this.snackBar.open('Loaded all projects for Edraak', 'Dismiss', {
-      duration: 2000,
-    });
   }
 
   showSpinner(id: string = 'all', project: object): void {

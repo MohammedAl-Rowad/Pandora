@@ -32,7 +32,6 @@ export class ProjectComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.hide();
-    this.snackBar.open('Loaded this project!', 'Dismiss', { duration: 2000 });
 
     if (this.isStatic) {
       const { issues, total } = this.obj;
