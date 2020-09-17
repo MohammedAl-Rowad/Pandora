@@ -19,6 +19,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterComponent } from './components/home/all-projects/components/filter/filter.component';
 import { UsersComponent } from './components/home/all-users/users/users.component';
 import { FilterProjectsComponent } from './components/home/all-users/users/filter-projects/filter-projects.component';
+import { AllEpicsComponent } from './components/home/all-epics/all-epics.component';
+import { EpicResolver } from './components/home/all-epics/resolvers/get-epics.resolver';
+import { EpicComponent } from './components/home/all-epics/epic/epic.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,8 @@ import { FilterProjectsComponent } from './components/home/all-users/users/filte
     FilterComponent,
     UsersComponent,
     FilterProjectsComponent,
+    AllEpicsComponent,
+    EpicComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +47,7 @@ import { FilterProjectsComponent } from './components/home/all-users/users/filte
     ReactiveFormsModule,
     NgSelectModule,
   ],
-  providers: [ProjectsResolver, UsersResolver, ProjectResolver],
+  providers: [ProjectsResolver, UsersResolver, ProjectResolver, EpicResolver],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
