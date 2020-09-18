@@ -64,3 +64,24 @@ $ ng s  # you need to install the angular cli for this
 - If you have any suggestions please open an issue with it
 - PR's are very welcomed 
 - if you are good with js I think you'll have good time looking at the code since it's really simple ( not clean though :/ )
+
+
+## examples 
+
+<details>
+  <summary>Click to see example #1</summary>  
+  <img src="ex01.png" />
+</details>
+
+
+<details>
+  <summary>Click to see example #2</summary>  
+  <img src="ex02.png" />
+</details>
+
+
+
+<details>
+  <summary>Click to see example #3</summary>  
+  <img src="ex03.png" />
+</details>
